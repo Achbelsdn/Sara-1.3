@@ -1,1 +1,208 @@
 @import "tailwindcss";
+
+/* ============================================
+   La Réserve - Premium Restaurant Design System
+   ============================================ */
+
+@theme {
+  /* Gold & Dark Luxury Palette */
+  --color-gold-50: #fdf8ed;
+  --color-gold-100: #f9edcc;
+  --color-gold-200: #f3d994;
+  --color-gold-300: #ecc55c;
+  --color-gold-400: #e6b535;
+  --color-gold-500: #d4982a;
+  --color-gold-600: #b87720;
+  --color-gold-700: #96571d;
+  --color-gold-800: #7b451f;
+  --color-gold-900: #67391d;
+
+  --color-dark-50: #f6f6f6;
+  --color-dark-100: #e7e7e7;
+  --color-dark-200: #d1d1d1;
+  --color-dark-300: #b0b0b0;
+  --color-dark-400: #888888;
+  --color-dark-500: #6d6d6d;
+  --color-dark-600: #5d5d5d;
+  --color-dark-700: #4f4f4f;
+  --color-dark-800: #454545;
+  --color-dark-900: #1a1a1a;
+  --color-dark-950: #0d0d0d;
+
+  --color-cream-50: #fefdfb;
+  --color-cream-100: #fdf9f0;
+  --color-cream-200: #faf2e0;
+  --color-cream-300: #f5e6c8;
+  --color-cream-400: #edd5a3;
+  --color-cream-500: #e4c17e;
+
+  --color-wine-500: #722f37;
+  --color-wine-600: #5c252c;
+  --color-wine-700: #4a1e24;
+
+  /* Typography */
+  --font-heading: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+  --font-accent: "Cormorant Garamond", Georgia, serif;
+}
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+/* ============================================
+   Base Styles
+   ============================================ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-dark-950);
+  color: var(--color-cream-100);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   Custom Utilities
+   ============================================ */
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-accent {
+  font-family: var(--font-accent);
+}
+
+/* Gold gradient text */
+.text-gradient-gold {
+  background: linear-gradient(135deg, var(--color-gold-300), var(--color-gold-500), var(--color-gold-300));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Elegant divider */
+.divider-gold {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold-500), transparent);
+}
+
+/* Glass morphism card */
+.glass-card {
+  background: rgba(26, 26, 26, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 152, 42, 0.15);
+}
+
+/* Premium button glow */
+.btn-glow {
+  box-shadow: 0 0 20px rgba(212, 152, 42, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+.btn-glow:hover {
+  box-shadow: 0 0 30px rgba(212, 152, 42, 0.5), 0 0 60px rgba(212, 152, 42, 0.2);
+}
+
+/* Parallax overlay */
+.overlay-gradient {
+  background: linear-gradient(
+    to bottom,
+    rgba(13, 13, 13, 0.7) 0%,
+    rgba(13, 13, 13, 0.4) 40%,
+    rgba(13, 13, 13, 0.6) 70%,
+    rgba(13, 13, 13, 1) 100%
+  );
+}
+
+/* Video placeholder */
+.video-placeholder {
+  background: linear-gradient(135deg, var(--color-dark-900), var(--color-dark-800));
+  border: 2px dashed rgba(212, 152, 42, 0.3);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-dark-950);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-dark-700);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-700);
+}
+
+/* Star rating */
+.star-filled {
+  color: var(--color-gold-400);
+}
+
+.star-empty {
+  color: var(--color-dark-600);
+}
+
+/* Animated underline */
+.animated-underline {
+  position: relative;
+}
+
+.animated-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-gold-500);
+  transition: width 0.3s ease;
+}
+
+.animated-underline:hover::after {
+  width: 100%;
+}
+
+/* Section padding */
+.section-padding {
+  padding: 6rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: 8rem 2rem;
+  }
+}
+
+/* Admin panel styles */
+.admin-sidebar {
+  background: linear-gradient(180deg, var(--color-dark-900), var(--color-dark-950));
+  border-right: 1px solid rgba(212, 152, 42, 0.1);
+}
+
+/* Form input styles */
+.input-premium {
+  background: rgba(26, 26, 26, 0.8);
+  border: 1px solid rgba(212, 152, 42, 0.2);
+  color: var(--color-cream-100);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-premium:focus {
+  border-color: var(--color-gold-500);
+  box-shadow: 0 0 0 3px rgba(212, 152, 42, 0.1);
+  outline: none;
+}
+
+.input-premium::placeholder {
+  color: var(--color-dark-400);
+}
